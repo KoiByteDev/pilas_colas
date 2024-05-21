@@ -6,22 +6,25 @@ class Colas extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [],
-        title: Text("Menu de Colas"),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text('Area en desarrollo...'),
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop(context);
-            },
-            child: const Text('Back'),
-          ),
-        ],
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(
+              height: 200,
+            ),
+            const Text('Area en desarrollo...'),
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(context);
+              },
+              child: const Text('Back'),
+            ),
+            const SizedBox(
+              height: 200,
+            ),
+          ],
+        ),
       ),
     );
   }

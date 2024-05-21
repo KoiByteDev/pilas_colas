@@ -11,16 +11,16 @@ class Box extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         width: 200,
         height: 75,
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Color.fromARGB(255, 104, 52, 97).withOpacity(0.3),
+              color: const Color.fromARGB(255, 104, 52, 97).withOpacity(0.3),
               spreadRadius: 2,
               blurRadius: 5,
-              offset: Offset(3, 3),
+              offset: const Offset(3, 3),
             )
           ],
           color: const Color.fromARGB(255, 224, 154, 238),
@@ -37,7 +37,11 @@ class Box extends StatelessWidget {
                 color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
           ),
         ),
-      ).animate().fadeIn(delay: (index*150).ms, duration: 800.ms).slideX(delay: (index*170).ms, duration: 800.ms, begin: 2, curve: Easing.legacyDecelerate),
+      ).animate().fadeIn(delay: (index * 150).ms, duration: 800.ms).slideX(
+          delay: (index * 170).ms,
+          duration: 800.ms,
+          begin: 2,
+          curve: Easing.legacyDecelerate),
     );
   }
 }

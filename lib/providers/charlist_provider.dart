@@ -11,9 +11,7 @@ class CharListProvider with ChangeNotifier {
   }
 
   void removeItem() {
-  
-      _charList.removeLast();
-      notifyListeners();
-  
+    _charList.removeLast();
+    notifyListeners();
   }
 }

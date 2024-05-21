@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:pilas_colas/providers/charlist_provider.dart';
+import 'package:pilas_colas/providers/cima_counter.dart';
 import 'package:provider/provider.dart';
 
 class NewItem extends StatefulWidget {
@@ -45,13 +46,14 @@ class _NewItemState extends State<NewItem> {
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
-                  color: Color.fromARGB(255, 104, 52, 97).withOpacity(0.2),
+                  color:
+                      const Color.fromARGB(255, 104, 52, 97).withOpacity(0.2),
                   spreadRadius: 2,
                   blurRadius: 3,
-                  offset: Offset(2, 4),
+                  offset: const Offset(2, 4),
                 ),
               ],
-              borderRadius: BorderRadius.all(
+              borderRadius: const BorderRadius.all(
                 Radius.circular(30),
               ),
             ),
@@ -60,16 +62,17 @@ class _NewItemState extends State<NewItem> {
                 iconSize: MaterialStateProperty.all<double>(12),
                 iconColor: MaterialStateProperty.all<Color>(Colors.white),
                 backgroundColor: MaterialStateProperty.all<Color>(
-                  Color.fromARGB(255, 224, 154, 238),
+                  const Color.fromARGB(255, 224, 154, 238),
                 ),
               ),
               onPressed: () {
                 if (context.read<CharListProvider>().charList.length < 5) {
                   _submitItem();
+                  context.read<CimaCounter>().add();
                 } else {
                   Navigator.of(context).pop();
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    const SnackBar(
                       content: Center(child: Text('La pila esta llena!')),
                     ),
                   );
@@ -79,7 +82,7 @@ class _NewItemState extends State<NewItem> {
                 'Añadir',
                 style: TextStyle(color: Colors.white),
               ),
-              icon: Icon(Icons.add),
+              icon: const Icon(Icons.add),
             ),
           ).animate().fadeIn(delay: 900.ms, duration: 700.ms).slideY(
                 delay: 900.ms,
