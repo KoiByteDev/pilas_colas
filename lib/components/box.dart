@@ -12,7 +12,8 @@ class Box extends StatelessWidget {
     return Expanded(
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-        width: 200,
+        padding: const EdgeInsets.all(6),
+        width: 160,
         height: 75,
         decoration: BoxDecoration(
           boxShadow: [

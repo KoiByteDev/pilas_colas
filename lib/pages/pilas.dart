@@ -232,99 +232,116 @@ class _PilasState extends State<Pilas> {
                         );
                       },
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 64),
-                      child: SizedBox(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              "CIMA = $cimaCounter",
-                              style: TextStyle(
-                                color: cimaCounter == '5'
-                                    ? Color.fromARGB(255, 224, 154, 238)
-                                    : Color.fromARGB(255, 255, 240, 255),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 24,
-                              ),
-                            )
-                                .animate()
-                                .fadeIn(delay: 1000.ms, duration: 1000.ms)
-                                .slideX(
-                                    begin: 2,
-                                    delay: 1000.ms,
-                                    duration: 1000.ms,
-                                    curve: Easing.legacyDecelerate),
-                            Text(
-                              "CIMA = $cimaCounter",
-                              style: TextStyle(
-                                color: cimaCounter == '4'
-                                    ? Color.fromARGB(255, 224, 154, 238)
-                                    : Color.fromARGB(255, 255, 240, 255),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 24,
-                              ),
-                            )
-                                .animate()
-                                .fadeIn(delay: 1000.ms, duration: 1000.ms)
-                                .slideX(
-                                    begin: 2,
-                                    delay: 1000.ms,
-                                    duration: 1000.ms,
-                                    curve: Easing.legacyDecelerate),
-                            Text(
-                              "CIMA = $cimaCounter",
-                              style: TextStyle(
-                                color: cimaCounter == '3'
-                                    ? Color.fromARGB(255, 224, 154, 238)
-                                    : Color.fromARGB(255, 255, 240, 255),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 24,
-                              ),
-                            )
-                                .animate()
-                                .fadeIn(delay: 1000.ms, duration: 1000.ms)
-                                .slideX(
-                                    begin: 2,
-                                    delay: 1000.ms,
-                                    duration: 1000.ms,
-                                    curve: Easing.legacyDecelerate),
-                            Text(
-                              "CIMA = $cimaCounter",
-                              style: TextStyle(
-                                color: cimaCounter == '2'
-                                    ? Color.fromARGB(255, 224, 154, 238)
-                                    : Color.fromARGB(255, 255, 240, 255),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 24,
-                              ),
-                            )
-                                .animate()
-                                .fadeIn(delay: 1000.ms, duration: 1000.ms)
-                                .slideX(
-                                    begin: 2,
-                                    delay: 1000.ms,
-                                    duration: 1000.ms,
-                                    curve: Easing.legacyDecelerate),
-                            Text(
-                              "CIMA = $cimaCounter",
-                              style: TextStyle(
-                                color: cimaCounter == '0' || cimaCounter == '1'
-                                    ? Color.fromARGB(255, 224, 154, 238)
-                                    : Color.fromARGB(255, 255, 240, 255),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 24,
-                              ),
-                            )
-                                .animate()
-                                .fadeIn(delay: 1000.ms, duration: 1000.ms)
-                                .slideX(
-                                    begin: 2,
-                                    delay: 1000.ms,
-                                    duration: 1000.ms,
-                                    curve: Easing.legacyDecelerate),
-                          ],
-                        ),
+                    const SizedBox(
+                      width: 64,
+                    ),
+                    SizedBox(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            "CIMA = $cimaCounter",
+                            style: TextStyle(
+                              color: cimaCounter == '6'
+                                  ? Color.fromARGB(255, 224, 154, 238)
+                                  : Color.fromARGB(255, 255, 240, 255),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24,
+                            ),
+                          )
+                              .animate()
+                              .fadeIn(delay: 1000.ms, duration: 1000.ms)
+                              .slideX(
+                                  begin: 2,
+                                  delay: 1000.ms,
+                                  duration: 1000.ms,
+                                  curve: Easing.legacyDecelerate),
+                          Text(
+                            "CIMA = $cimaCounter",
+                            style: TextStyle(
+                              color: cimaCounter == '5'
+                                  ? Color.fromARGB(255, 224, 154, 238)
+                                  : Color.fromARGB(255, 255, 240, 255),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24,
+                            ),
+                          )
+                              .animate()
+                              .fadeIn(delay: 1000.ms, duration: 1000.ms)
+                              .slideX(
+                                  begin: 2,
+                                  delay: 1000.ms,
+                                  duration: 1000.ms,
+                                  curve: Easing.legacyDecelerate),
+                          Text(
+                            "CIMA = $cimaCounter",
+                            style: TextStyle(
+                              color: cimaCounter == '4'
+                                  ? Color.fromARGB(255, 224, 154, 238)
+                                  : Color.fromARGB(255, 255, 240, 255),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24,
+                            ),
+                          )
+                              .animate()
+                              .fadeIn(delay: 1000.ms, duration: 1000.ms)
+                              .slideX(
+                                  begin: 2,
+                                  delay: 1000.ms,
+                                  duration: 1000.ms,
+                                  curve: Easing.legacyDecelerate),
+                          Text(
+                            "CIMA = $cimaCounter",
+                            style: TextStyle(
+                              color: cimaCounter == '3'
+                                  ? Color.fromARGB(255, 224, 154, 238)
+                                  : Color.fromARGB(255, 255, 240, 255),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24,
+                            ),
+                          )
+                              .animate()
+                              .fadeIn(delay: 1000.ms, duration: 1000.ms)
+                              .slideX(
+                                  begin: 2,
+                                  delay: 1000.ms,
+                                  duration: 1000.ms,
+                                  curve: Easing.legacyDecelerate),
+                          Text(
+                            "CIMA = $cimaCounter",
+                            style: TextStyle(
+                              color: cimaCounter == '2'
+                                  ? Color.fromARGB(255, 224, 154, 238)
+                                  : Color.fromARGB(255, 255, 240, 255),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24,
+                            ),
+                          )
+                              .animate()
+                              .fadeIn(delay: 1000.ms, duration: 1000.ms)
+                              .slideX(
+                                  begin: 2,
+                                  delay: 1000.ms,
+                                  duration: 1000.ms,
+                                  curve: Easing.legacyDecelerate),
+                          Text(
+                            "CIMA = $cimaCounter",
+                            style: TextStyle(
+                              color: cimaCounter == '0' || cimaCounter == '1'
+                                  ? Color.fromARGB(255, 224, 154, 238)
+                                  : Color.fromARGB(255, 255, 240, 255),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24,
+                            ),
+                          )
+                              .animate()
+                              .fadeIn(delay: 1000.ms, duration: 1000.ms)
+                              .slideX(
+                                  begin: 2,
+                                  delay: 1000.ms,
+                                  duration: 1000.ms,
+                                  curve: Easing.legacyDecelerate),
+                        ],
                       ),
                     )
                   ],

@@ -13,15 +13,15 @@ class DisplayPila extends StatefulWidget {
 class _DisplayPilaState extends State<DisplayPila> {
   @override
   Widget build(BuildContext context) {
-    List<String> displayItems = List<String>.filled(5, '');
-    for (int i = 0; i < widget.item.length && i < 5; i++) {
+    List<String> displayItems = List<String>.filled(6, '');
+    for (int i = 0; i < widget.item.length && i < 6; i++) {
       displayItems[i] = widget.item[i];
       print(displayItems);
     }
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(5, (index) {
+      children: List.generate(6, (index) {
         return Box(item: displayItems.reversed.toList()[index], index: index);
       }),
     );

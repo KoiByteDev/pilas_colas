@@ -66,9 +66,15 @@ class _NewItemState extends State<NewItem> {
                 ),
               ),
               onPressed: () {
-                if (context.read<CharListProvider>().charList.length < 5) {
+                if (context.read<CharListProvider>().charList.length < 6 && _itemController.text.length < 9) {
                   _submitItem();
                   context.read<CimaCounter>().add();
+                } else if (_itemController.text.length >= 9) {
+                  Navigator.of(context).pop();
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Center(
+                    child: Text('El item debe ser menor de 9 caracteres.'),
+                  )));
                 } else {
                   Navigator.of(context).pop();
                   ScaffoldMessenger.of(context).showSnackBar(
