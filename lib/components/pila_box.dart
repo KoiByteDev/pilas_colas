@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-class Box extends StatelessWidget {
-  const Box({super.key, required this.item, required this.index});
+class PilaBox extends StatelessWidget {
+  const PilaBox({super.key, required this.item, required this.index});
 
   final String item;
   final int index;
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     return Expanded(
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
@@ -18,13 +19,13 @@ class Box extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: const Color.fromARGB(255, 104, 52, 97).withOpacity(0.3),
+              color: colorScheme.secondary.withOpacity(0.3),
               spreadRadius: 2,
               blurRadius: 5,
               offset: const Offset(3, 3),
             )
           ],
-          color: const Color.fromARGB(255, 224, 154, 238),
+          color: colorScheme.primary,
           borderRadius: const BorderRadius.all(
             Radius.circular(
               20,
@@ -34,8 +35,8 @@ class Box extends StatelessWidget {
         child: Center(
           child: Text(
             item,
-            style: const TextStyle(
-                color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                color: colorScheme.onPrimary, fontSize: 24, fontWeight: FontWeight.bold),
           ),
         ),
       ).animate().fadeIn(delay: (index * 150).ms, duration: 800.ms).slideX(

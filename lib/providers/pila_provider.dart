@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CharListProvider with ChangeNotifier {
+class PilaProvider with ChangeNotifier {
   List<String> _charList = [];
 
   List<String> get charList => _charList;

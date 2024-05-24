@@ -1,6 +1,10 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:pilas_colas/providers/charlist_provider.dart';
+import 'package:pilas_colas/providers/cola_provider.dart';
+import 'package:pilas_colas/providers/mode_provider.dart';
+import 'package:pilas_colas/providers/pila_provider.dart';
 import 'package:pilas_colas/providers/cima_counter.dart';
 import 'package:provider/provider.dart';
 
@@ -20,17 +24,60 @@ class _NewItemState extends State<NewItem> {
     super.dispose();
   }
 
-  void _submitItem() {
+  void _submitItem(mode) {
     final newItem = _itemController.text;
-    if (newItem.isNotEmpty) {
-      context.read<CharListProvider>().addItem(newItem);
-      _itemController.clear();
+    try {
+      int item = int.parse(newItem);
+      if (newItem.isEmpty) {
+        Navigator.of(context).pop();
+        ScaffoldMessenger.of(context).clearSnackBars();
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Center(
+          child: Text(
+            "Por favor introduzca un valor.",
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+        )));
+      } else if (item < 1 || item > 99) {
+        Navigator.of(context).pop();
+        ScaffoldMessenger.of(context).clearSnackBars();
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Center(
+          child: Text(
+            "Por favor introduzca un valor entre 1 y 99.",
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+        )));
+      } else {
+        if (mode == 'pila') {
+          context.read<PilaProvider>().addItem(newItem);
+          _itemController.clear();
+          Navigator.of(context).pop();
+        } else if (mode == 'cola') {
+          context.read<ColaProvider>().addItem(newItem);
+          _itemController.clear();
+          Navigator.of(context).pop();
+        }
+        context.read<CimaCounter>().add();
+      }
+    } catch (e) {
       Navigator.of(context).pop();
+      ScaffoldMessenger.of(context).clearSnackBars();
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Center(
+          child: Text(
+            "Por favor introduzca un número válido.",
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+        ),
+      ));
+      return;
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final mode = Provider.of<ModeProvider>(context);
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 48, 16, 16),
       child: Column(
@@ -39,7 +86,7 @@ class _NewItemState extends State<NewItem> {
             controller: _itemController,
             maxLength: 24,
             decoration: const InputDecoration(
-              label: Text("Introduzca el item"),
+              label: Text("Introduzca un numero del 1 al 99"),
             ),
           ),
           Container(
@@ -66,23 +113,7 @@ class _NewItemState extends State<NewItem> {
                 ),
               ),
               onPressed: () {
-                if (context.read<CharListProvider>().charList.length < 6 && _itemController.text.length < 9) {
-                  _submitItem();
-                  context.read<CimaCounter>().add();
-                } else if (_itemController.text.length >= 9) {
-                  Navigator.of(context).pop();
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                      content: Center(
-                    child: Text('El item debe ser menor de 9 caracteres.'),
-                  )));
-                } else {
-                  Navigator.of(context).pop();
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Center(child: Text('La pila esta llena!')),
-                    ),
-                  );
-                }
+                _submitItem(mode.mode);
               },
               label: const Text(
                 'Añadir',
