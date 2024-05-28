@@ -30,7 +30,7 @@ class _MainPageState extends State<MainPage> {
             decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
-                  color: colorScheme.onBackground.withOpacity(0.3),
+                  color: colorScheme.shadow.withOpacity(0.3),
                   spreadRadius: 7,
                   blurRadius: 15,
                   offset: const Offset(13, 3),
@@ -85,7 +85,7 @@ class _MainPageState extends State<MainPage> {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            color: colorScheme.secondary.withOpacity(0.2),
+                            color: colorScheme.shadow.withOpacity(0.2),
                             spreadRadius: 2,
                             blurRadius: 3,
                             offset: const Offset(2, 4),
@@ -108,8 +108,8 @@ class _MainPageState extends State<MainPage> {
                           mode.setPila();
                           Navigator.of(context).pushReplacement(
                             PageRouteBuilder(
-                              pageBuilder: (_, __, ___) => Menu(),
-                              transitionDuration: Duration(milliseconds: 155),
+                              pageBuilder: (_, __, ___) => const Menu(),
+                              transitionDuration: const Duration(milliseconds: 155),
                               transitionsBuilder: (_, a, __, c) =>
                                   FadeTransition(opacity: a, child: c),
                             ),
@@ -121,7 +121,7 @@ class _MainPageState extends State<MainPage> {
                         ),
                       ))
                   .animate()
-                  .fadeIn(delay: 1000.ms, duration: 500.ms)
+                  .fadeIn(delay: 1200.ms, duration: 500.ms)
                   .slideX(
                     delay: 1000.ms,
                     duration: 700.ms,
@@ -136,7 +136,7 @@ class _MainPageState extends State<MainPage> {
                         boxShadow: [
                           BoxShadow(
                             color:
-                                colorScheme.onSecondaryContainer.withOpacity(0.2),
+                                colorScheme.shadow.withOpacity(0.2),
                             spreadRadius: 2,
                             blurRadius: 3,
                             offset: const Offset(2, 4)
@@ -159,8 +159,8 @@ class _MainPageState extends State<MainPage> {
                           mode.setCola();
                           Navigator.of(context).pushReplacement(
                             PageRouteBuilder(
-                              pageBuilder: (_, __, ___) => Menu(),
-                              transitionDuration: Duration(milliseconds: 155),
+                              pageBuilder: (_, __, ___) => const Menu(),
+                              transitionDuration: const Duration(milliseconds: 155),
                               transitionsBuilder: (_, a, __, c) =>
                                   FadeTransition(opacity: a, child: c),
                             ),
@@ -172,7 +172,7 @@ class _MainPageState extends State<MainPage> {
                         ),
                       ))
                   .animate()
-                  .fadeIn(delay: 1000.ms, duration: 500.ms)
+                  .fadeIn(delay: 1200.ms, duration: 500.ms)
                   .slideX(
                     delay: 1000.ms,
                     duration: 700.ms,
@@ -213,9 +213,9 @@ class _MainPageState extends State<MainPage> {
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: colorScheme.secondaryContainer.withOpacity(0.4),
+                      color: colorScheme.shadow.withOpacity(0.2),
                       spreadRadius: 5,
-                      blurRadius: 20,
+                      blurRadius: 10,
                     ),
                   ],
                   borderRadius: const BorderRadius.all(
@@ -255,26 +255,26 @@ class _MainPageState extends State<MainPage> {
                 style: TextStyle(color: colorScheme.onSecondaryContainer),
               ).animate().fadeIn(delay: 1600.ms).slideX(
                   delay: 1600.ms, begin: -2, curve: Easing.legacyDecelerate),
-              Text(
-                'Samuel Arosemena',
-                style: TextStyle(color: colorScheme.onSecondaryContainer),
-              ).animate().fadeIn(delay: 1700.ms).slideX(
-                  delay: 1700.ms, begin: -2, curve: Easing.legacyDecelerate),
-              Text(
-                'Alexandra Zheng',
-                style: TextStyle(color: colorScheme.onSecondaryContainer),
-              ).animate().fadeIn(delay: 1800.ms).slideX(
-                  delay: 1800.ms, begin: -2, curve: Easing.legacyDecelerate),
-              Text(
-                'Stephany Chong',
-                style: TextStyle(color: colorScheme.onSecondaryContainer),
-              ).animate().fadeIn(delay: 1900.ms).slideX(
-                  delay: 1900.ms, begin: -2, curve: Easing.legacyDecelerate),
-              Text(
-                'Fabian Atencio',
-                style: TextStyle(color: colorScheme.onSecondaryContainer),
-              ).animate().fadeIn(delay: 1900.ms).slideX(
-                  delay: 1900.ms, begin: -2, curve: Easing.legacyDecelerate),
+              // Text(
+              //   'Samuel Arosemena',
+              //   style: TextStyle(color: colorScheme.onSecondaryContainer),
+              // ).animate().fadeIn(delay: 1700.ms).slideX(
+              //     delay: 1700.ms, begin: -2, curve: Easing.legacyDecelerate),
+              // Text(
+              //   'Alexandra Zheng',
+              //   style: TextStyle(color: colorScheme.onSecondaryContainer),
+              // ).animate().fadeIn(delay: 1800.ms).slideX(
+              //     delay: 1800.ms, begin: -2, curve: Easing.legacyDecelerate),
+              // Text(
+              //   'Stephany Chong',
+              //   style: TextStyle(color: colorScheme.onSecondaryContainer),
+              // ).animate().fadeIn(delay: 1900.ms).slideX(
+              //     delay: 1900.ms, begin: -2, curve: Easing.legacyDecelerate),
+              // Text(
+              //   'Fabian Atencio',
+              //   style: TextStyle(color: colorScheme.onSecondaryContainer),
+              // ).animate().fadeIn(delay: 1900.ms).slideX(
+              //     delay: 21.ms, begin: -2, curve: Easing.legacyDecelerate),
             ],
           )
         ],

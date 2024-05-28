@@ -21,7 +21,6 @@ class _DisplayPilaState extends State<DisplayPila> {
     List<String> displayItems = List<String>.filled(6, '');
     for (int i = 0; i < item.charList.length && i < 6; i++) {
       displayItems[i] = item.charList[i];
-      print(displayItems);
     }
 
     return Row(

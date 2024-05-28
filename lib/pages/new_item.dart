@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -52,13 +51,13 @@ class _NewItemState extends State<NewItem> {
         if (mode == 'pila') {
           context.read<PilaProvider>().addItem(newItem);
           _itemController.clear();
+          context.read<CimaCounter>().add();
           Navigator.of(context).pop();
         } else if (mode == 'cola') {
           context.read<ColaProvider>().addItem(newItem);
           _itemController.clear();
           Navigator.of(context).pop();
         }
-        context.read<CimaCounter>().add();
       }
     } catch (e) {
       Navigator.of(context).pop();
@@ -71,6 +70,7 @@ class _NewItemState extends State<NewItem> {
           ),
         ),
       ));
+      print(e.toString());
       return;
     }
   }
@@ -78,11 +78,13 @@ class _NewItemState extends State<NewItem> {
   @override
   Widget build(BuildContext context) {
     final mode = Provider.of<ModeProvider>(context);
+    final colorScheme = Theme.of(context).colorScheme;
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 48, 16, 16),
       child: Column(
         children: [
           TextField(
+            style: TextStyle(color: colorScheme.primary),
             controller: _itemController,
             maxLength: 24,
             decoration: const InputDecoration(
@@ -109,7 +111,7 @@ class _NewItemState extends State<NewItem> {
                 iconSize: MaterialStateProperty.all<double>(12),
                 iconColor: MaterialStateProperty.all<Color>(Colors.white),
                 backgroundColor: MaterialStateProperty.all<Color>(
-                  const Color.fromARGB(255, 224, 154, 238),
+                  colorScheme.primary,
                 ),
               ),
               onPressed: () {
@@ -121,8 +123,8 @@ class _NewItemState extends State<NewItem> {
               ),
               icon: const Icon(Icons.add),
             ),
-          ).animate().fadeIn(delay: 900.ms, duration: 700.ms).slideY(
-                delay: 900.ms,
+          ).animate().fadeIn(delay: 400.ms, duration: 700.ms).slideY(
+                delay: 400.ms,
                 duration: 700.ms,
                 curve: Easing.legacyDecelerate,
                 begin: 2,

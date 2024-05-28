@@ -14,7 +14,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => PilaProvider()),
-        ChangeNotifierProvider(create: (context) => ColaProvider()),
+        ChangeNotifierProvider(create: (context) => ColaProvider  ()),
         ChangeNotifierProvider(create: (context) => CimaCounter()),
         ChangeNotifierProvider(create: (context) => ModeProvider()),
         ChangeNotifierProvider(
@@ -34,7 +34,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
         theme: ThemeData().copyWith(
           colorScheme: ColorScheme.fromSeed(
-            seedColor: Color.fromARGB(255, 255, 120, 226),
+            seedColor: const Color.fromARGB(255, 255, 120, 226),
             brightness:
                 themeProvider.lightTheme ? Brightness.light : Brightness.dark,
           ),

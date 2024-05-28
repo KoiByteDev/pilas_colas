@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:pilas_colas/components/display_cola.dart';
 import 'package:pilas_colas/components/display_pila.dart';
@@ -20,10 +19,8 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
-  var _isShaking = false;
 
   void _openAddItemOverlay(mode) {
-    print(mode.toString());
     if (mode == 'pila') {
       if (context.read<PilaProvider>().charList.length < 6) {
         showModalBottomSheet(
@@ -43,7 +40,7 @@ class _MenuState extends State<Menu> {
         );
       }
     } else if (mode == 'cola') {
-      if (context.read<ColaProvider>().getFront() == '') {
+      if (context.read<ColaProvider>().charList[((context.read<ColaProvider>().front + 1) % 6)] == '') {
         showModalBottomSheet(
           context: context,
           builder: (ctx) => const NewItem(),
@@ -103,14 +100,13 @@ class _MenuState extends State<Menu> {
 
   void _shake() {
     setState(() {
-      _isShaking = true;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     final mode = Provider.of<ModeProvider>(context);
-    String cimaCounter = context.watch<CimaCounter>().cima.toString();
+    context.watch<CimaCounter>().cima.toString();
     final themeProvider = Provider.of<ThemeProvider>(context);
     final colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
@@ -124,7 +120,7 @@ class _MenuState extends State<Menu> {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: colorScheme.secondary.withOpacity(0.4),
+                    color: colorScheme.shadow.withOpacity(0.4),
                     spreadRadius: 7,
                     blurRadius: 15,
                     offset: const Offset(13, 3),
@@ -136,41 +132,51 @@ class _MenuState extends State<Menu> {
                   bottomRight: Radius.circular(60),
                 ),
               ),
-              child: Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      mode.mode == 'pila' ? "Menu de Pilas" : "Menu de Colas",
-                      style: TextStyle(
-                        color: colorScheme.onPrimary,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 32,
-                      ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    mode.mode == 'pila' ? "Menu de Pilas" : "Menu de Colas",
+                    style: TextStyle(
+                      color: colorScheme.onPrimary,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 32,
                     ),
-                    const SizedBox(
-                      width: 24,
+                  ),
+                  const SizedBox(
+                    width: 24,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(30)),
+                      boxShadow: [
+                        BoxShadow(
+                          color: colorScheme.shadow.withOpacity(0.4),
+                          spreadRadius: 2,
+                          blurRadius: 5,
+                          offset: const Offset(2, 2),
+                        )
+                      ],
                     ),
-                    IconButton(
+                    child: IconButton(
                       style: ButtonStyle(
                         iconColor: MaterialStateProperty.all<Color>(
                             colorScheme.onPrimary),
                         backgroundColor: MaterialStateProperty.all<Color>(
-                          colorScheme.onSecondaryContainer
-                        ),
+                            colorScheme.primary),
                       ),
                       icon: const Icon(Icons.sunny),
                       onPressed: () {
                         themeProvider.toggleTheme();
                       },
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
             Expanded(
               child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 36),
+                padding: const EdgeInsets.symmetric(vertical: 36),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -182,7 +188,7 @@ class _MenuState extends State<Menu> {
                           decoration: BoxDecoration(
                             boxShadow: [
                               BoxShadow(
-                                color: colorScheme.secondary.withOpacity(0.2),
+                                color: colorScheme.shadow.withOpacity(0.2),
                                 spreadRadius: 2,
                                 blurRadius: 3,
                                 offset: const Offset(2, 4),
@@ -226,7 +232,7 @@ class _MenuState extends State<Menu> {
                           decoration: BoxDecoration(
                             boxShadow: [
                               BoxShadow(
-                                color: colorScheme.secondary.withOpacity(0.2),
+                                color: colorScheme.shadow.withOpacity(0.2),
                                 spreadRadius: 2,
                                 blurRadius: 3,
                                 offset: const Offset(2, 4),
@@ -270,7 +276,7 @@ class _MenuState extends State<Menu> {
                           decoration: BoxDecoration(
                             boxShadow: [
                               BoxShadow(
-                                color: colorScheme.secondary.withOpacity(0.2),
+                                color: colorScheme.shadow.withOpacity(0.2),
                                 spreadRadius: 2,
                                 blurRadius: 3,
                                 offset: const Offset(2, 4),
@@ -292,9 +298,9 @@ class _MenuState extends State<Menu> {
                             onPressed: () {
                               Navigator.of(context).pushReplacement(
                                 PageRouteBuilder(
-                                  pageBuilder: (_, __, ___) => MainPage(),
+                                  pageBuilder: (_, __, ___) => const MainPage(),
                                   transitionDuration:
-                                      Duration(milliseconds: 155),
+                                      const Duration(milliseconds: 155),
                                   transitionsBuilder: (_, a, __, c) =>
                                       FadeTransition(opacity: a, child: c),
                                 ),
