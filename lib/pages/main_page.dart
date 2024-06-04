@@ -97,9 +97,9 @@ class _MainPageState extends State<MainPage> {
                       ),
                       child: TextButton.icon(
                         style: ButtonStyle(
-                          iconColor: MaterialStateProperty.all<Color>(
+                          iconColor: WidgetStateProperty.all<Color>(
                               colorScheme.onPrimary),
-                          backgroundColor: MaterialStateProperty.all<Color>(
+                          backgroundColor: WidgetStateProperty.all<Color>(
                             colorScheme.primary,
                           ),
                         ),
@@ -148,9 +148,9 @@ class _MainPageState extends State<MainPage> {
                       ),
                       child: TextButton.icon(
                         style: ButtonStyle(
-                          iconColor: MaterialStateProperty.all<Color>(
+                          iconColor: WidgetStateProperty.all<Color>(
                               colorScheme.onPrimary),
-                          backgroundColor: MaterialStateProperty.all<Color>(
+                          backgroundColor: WidgetStateProperty.all<Color>(
                             colorScheme.primary,
                           ),
                         ),
@@ -184,29 +184,6 @@ class _MainPageState extends State<MainPage> {
           const SizedBox(
             height: 24,
           ),
-          // Center(
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     children: [
-          //       Container(
-          //         width: 100, // Set the desired width of the divider
-          //         height: 2, // Set the desired thickness of the divider
-          //         color: Color.fromARGB(
-          //             255, 224, 154, 238), // Set the color of the divider
-          //       ),
-          //       SizedBox(
-          //         width: 24,
-          //       ), // Add some space between the dividers
-          //       Container(
-          //         width: 100, // Set the desired width of the divider
-          //         height: 2, // Set the desired thickness of the divider
-          //         color: Color.fromARGB(
-          //             255, 224, 154, 238), // Set the color of the divider
-          //       ),
-          //     ],
-          //   ),
-          // ),
-
           Column(
             children: [
               Container(
@@ -225,8 +202,8 @@ class _MainPageState extends State<MainPage> {
                 child: IconButton(
                   style: ButtonStyle(
                     iconColor:
-                        MaterialStateProperty.all<Color>(colorScheme.onPrimary),
-                    backgroundColor: MaterialStateProperty.all<Color>(
+                        WidgetStateProperty.all<Color>(colorScheme.onPrimary),
+                    backgroundColor: WidgetStateProperty.all<Color>(
                       colorScheme.primary,
                     ),
                   ),
@@ -255,26 +232,6 @@ class _MainPageState extends State<MainPage> {
                 style: TextStyle(color: colorScheme.onSecondaryContainer),
               ).animate().fadeIn(delay: 1600.ms).slideX(
                   delay: 1600.ms, begin: -2, curve: Easing.legacyDecelerate),
-              // Text(
-              //   'Samuel Arosemena',
-              //   style: TextStyle(color: colorScheme.onSecondaryContainer),
-              // ).animate().fadeIn(delay: 1700.ms).slideX(
-              //     delay: 1700.ms, begin: -2, curve: Easing.legacyDecelerate),
-              // Text(
-              //   'Alexandra Zheng',
-              //   style: TextStyle(color: colorScheme.onSecondaryContainer),
-              // ).animate().fadeIn(delay: 1800.ms).slideX(
-              //     delay: 1800.ms, begin: -2, curve: Easing.legacyDecelerate),
-              // Text(
-              //   'Stephany Chong',
-              //   style: TextStyle(color: colorScheme.onSecondaryContainer),
-              // ).animate().fadeIn(delay: 1900.ms).slideX(
-              //     delay: 1900.ms, begin: -2, curve: Easing.legacyDecelerate),
-              // Text(
-              //   'Fabian Atencio',
-              //   style: TextStyle(color: colorScheme.onSecondaryContainer),
-              // ).animate().fadeIn(delay: 1900.ms).slideX(
-              //     delay: 21.ms, begin: -2, curve: Easing.legacyDecelerate),
             ],
           )
         ],
